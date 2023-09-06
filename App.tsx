@@ -18,7 +18,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import NAVIGATION from './Navigation'; 
+import NAVIGATION from './navigation';
+import Inicio from './home';
+import Inscription from './inscription';
 
 
 type SectionProps = PropsWithChildren<{
@@ -61,7 +63,7 @@ function App(): JSX.Element {
 
   return (
     <View style={backgroundStyle}>
-      <NAVIGATION/>  
+      <Inscription/>  
     </View>
   );
 }
