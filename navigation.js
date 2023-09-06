@@ -18,7 +18,7 @@ export default class Navigation extends Component {
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Inicio'>
           <Stack.Screen name='Inicio' component={Inicio} options={{headerShown: false}}/>
-          <Stack.Screen name='Ins' component={Ins}/>
+          <Stack.Screen name='Inscription' component={Ins}/>
         </Stack.Navigator>
       </NavigationContainer>
     )
