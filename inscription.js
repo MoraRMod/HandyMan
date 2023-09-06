@@ -15,7 +15,7 @@ export default class Inscription extends Component {
 			this.setState({modalVisible: true})
 		}
 		const facebook = () => {
-			this.setState({modalVisible: true})
+			this.setState({modalFacebook: true})
 		}
 
 		const cierraModal = () => {
