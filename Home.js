@@ -1,28 +1,27 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import { BlurView } from '@react-native-community/blur';
-import { NavigationContext } from '@react-navigation/native';
+import { BlurView } from 'react-native-blur';
+import { useNavigation } from '@react-navigation/native';
 
 export default class Inicio extends Component {
-  static constectType = NavigationContext;
   constructor(props) {
     super(props);
     this.state = {
-      // declaracion de variables
     };
   }
 
   render(){
-    const navigation = this.context;
     const clickEmail = () =>{
       console.log('Picaste el boton de Email')
+      this.props.navigation.navigate('Inscription')
     };
     const clickFacebook = () =>{
       console.log('Picaste el boton de Facebook')
+      this.props.navigation.navigate('Inscription')
     };
     
     const irIns = () => {
-      navigation.navigate('inscripcion')
+      this.props.navigation.navigate('Inscription')
     }
 
     return(
@@ -40,47 +39,45 @@ export default class Inicio extends Component {
           color: 'white',
           marginTop: 120,
         }}>a</Text>
+
         <Image style = {styles.img} source = {require('./src/img/handyman.png')}/>
         
-        <BlurView blurType = 'light' blurAmount = {4} style = {{marginTop: 470}}>
-          <View style = {styles.login}>
-            <Text style = {{
-              marginTop: 10,
-              marginLeft: 5,
-              fontSize: 25,
-              color: 'white',
-              fontWeight: 'bold',
-            }}>Ingresar</Text>
+        <View style = {styles.login}>
+          <Text style = {{
+            marginTop: 10,
+            marginLeft: 5,
+            fontSize: 25,
+            color: 'white',
+            fontWeight: 'bold',
+          }}>Ingresar</Text>
 
-            <View style = {{
-              display: 'flex',
-              flexDirection: 'row',
-              alignContent: 'center',
-              marginTop: 20,
-              marginLeft: 45,
-              position: 'relative'
-            }}>
+          <View style = {{
+            display: 'flex',
+            flexDirection: 'row',
+            alignContent: 'center',
+            marginTop: 20,
+            marginLeft: 45,
+            position: 'relative'}}>
 
-              <TouchableOpacity style = {styles.clickEmail} onPress = {clickEmail}>
-                <View style = {styles.btnEmail}>
-                  <Image style = {styles.imgEmail} source = {require('./src/img/gmail.png')}/>
-                </View>
-              </TouchableOpacity>
+            <TouchableOpacity style = {styles.clickEmail} onPress = {clickEmail}>
+              <View style = {styles.btnEmail}>
+                <Image style = {styles.imgEmail} source = {require('./src/img/gmail.png')}/>
+              </View>
+            </TouchableOpacity>
 
-              <TouchableOpacity style = {styles.clickFacebook} onPress = {clickFacebook}>
-                <View style = {styles.btnFacebook}>
-                  <Image style = {styles.imgFacebok} source = {require('./src/img/f.png')}/>
-                </View>
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity onPress={irIns}>
-              <View style = {styles.viewNotAccount}>
-                <Text style = {styles.txtAlert}>¿No tienes cuenta?</Text>
-                <Text style = {styles.txtSignUp}>Registrarse</Text>
+            <TouchableOpacity style = {styles.clickFacebook} onPress = {clickFacebook}>
+              <View style = {styles.btnFacebook}>
+                <Image style = {styles.imgFacebok} source = {require('./src/img/f.png')}/>
               </View>
             </TouchableOpacity>
           </View>
-        </BlurView>
+        </View>
+        <TouchableOpacity onPress={irIns}>
+            <View style = {styles.viewNotAccount}>
+              <Text style = {styles.txtAlert}>¿No tienes cuenta?</Text>
+              <Text style = {styles.txtSignUp}>Registrarse</Text>
+            </View>
+          </TouchableOpacity>
       </View>
     )
   }
@@ -122,8 +119,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
-    marginTop: 30,
-    marginBottom: 12,
+    position: 'absolute',
+    marginTop: -50,
+    marginLeft: -125,
   },
   btnFacebook: {
     maxWidth: 60,
@@ -166,6 +164,7 @@ const styles = StyleSheet.create({
     shadowRadius: 32,
     shadowOpacity: 1,
     padding: 16,
+    marginTop: 450,
   },
   fondo: {
     height: 1000,
