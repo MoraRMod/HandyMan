@@ -5,7 +5,8 @@ export default class inscripcion extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			modalVisible: false
+			modalVisible: false,
+			modalFacebook: false
 		}
 	}
 
@@ -19,6 +20,9 @@ export default class inscripcion extends Component {
 
 		const cierraModal = () => {
 			this.setState({modalVisible: false})
+		}
+		const cierraModalFacebook = () => {
+			this.setState({modalFacebook: false})
 		}
 
 		return (
@@ -118,6 +122,59 @@ export default class inscripcion extends Component {
 								justifyContent: 'center'
 							}}
 						onPress = {cierraModal}>
+							
+							<Text
+								style = {{
+									fontSize: 20,
+									textAlign: 'center',
+									color: 'white'
+							}}>
+								
+								Aceptar
+							</Text>
+						</TouchableOpacity>
+					</View>
+				</Modal>
+
+				{/* Ventana modal facebook*/}
+				<Modal
+					visible = {this.state.modalFacebook}
+					animationType= 'slide'
+					transparent = {true}
+					onRequestClose = {() => {
+						this.setState({modalVisible: false})
+				}}>
+
+					<View
+						style = {{
+							borderWidth: 2,
+							marginLeft: 50,
+							marginTop: 280,
+							width: 300,
+							borderColor: 'grey',
+							borderRadius: 40,
+							padding: 10
+					}}>
+
+						<Text style = {styles.subtitulo}>Correo:</Text>
+						<TextInput style = {styles.txtInput}/>
+
+						<Text style = {styles.subtitulo}>Password:</Text>
+						<TextInput style = {styles.txtInput}/>
+
+						<TouchableOpacity
+							style = {{
+								borderWidth: 2,
+								borderColor: 'transparent',
+								backgroundColor: '#1278f3',
+								width: 150,
+								height: 50,
+								borderRadius: 40,
+								marginLeft: 60,
+								display: 'flex',
+								justifyContent: 'center'
+							}}
+						onPress = {cierraModalFacebook}>
 							
 							<Text
 								style = {{
