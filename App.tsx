@@ -63,7 +63,7 @@ function App(): JSX.Element {
 
   return (
     <View style={backgroundStyle}>
-      <Inscription/>  
+      <NAVIGATION/>  
     </View>
   );
 }
