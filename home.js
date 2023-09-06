@@ -30,6 +30,7 @@ export default class Home extends Component {
             fontSize: 40,
             color: 'white',
             marginTop: 60,
+            fontFamily: 'Poppins',
           }}>
           Bienvenido
         </Text>
@@ -43,6 +44,11 @@ export default class Home extends Component {
           }}>
           a
         </Text>
+
+        <Image
+          style={styles.constructor}
+          source={require('./src/img/constructor.png')}
+        />
 
         <Image style={styles.img} source={require('./src/img/handyman.png')} />
 
@@ -137,7 +143,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'absolute',
     marginTop: -50,
-    marginLeft: -125,
+    marginLeft: -108,
   },
   btnFacebook: {
     maxWidth: 60,
@@ -180,18 +186,26 @@ const styles = StyleSheet.create({
     shadowRadius: 32,
     shadowOpacity: 1,
     padding: 16,
-    marginTop: 450,
+    marginTop: 608,
   },
   fondo: {
     height: 1000,
     backgroundColor: '#e58835',
     alignItems: 'center',
+    alignContent: 'center',
   },
   img: {
     width: 500,
     height: 500,
     position: 'absolute',
-    marginTop: -30,
+    marginTop: -20,
     transform: [{rotate: '-17deg'}],
+  },
+  constructor: {
+    width: 250,
+    height: 380,
+    position: 'absolute',
+    marginTop: 228,
+    marginLeft: 80,
   },
 });
