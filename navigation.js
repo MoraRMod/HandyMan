@@ -24,7 +24,11 @@ export default class Navigation extends Component {
             options={{headerShown: false}}
           />
           <Stack.Screen name="Inscription" component={Ins} />
-          <Stack.Screen name="Menu" component={Men} options={{headerShown: false}}/>
+          <Stack.Screen
+            name="Men"
+            component={Men}
+            options={{headerShown: false}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
