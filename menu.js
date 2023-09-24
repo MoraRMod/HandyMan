@@ -11,7 +11,7 @@ export default class Menu extends Component {
   render() {
     return (
       <View>
-        <Text style={{color: 'white'}}>
+        <Text style={{color: 'black'}}>
           {' '}
           Bienvenido: {this.props.route.params.nombre}{' '}
         </Text>
