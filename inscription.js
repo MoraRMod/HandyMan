@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Modal,
   TextInput,
+  Alert,
 } from 'react-native';
 
 export default class Inscription extends Component {
@@ -38,6 +39,7 @@ export default class Inscription extends Component {
       this.setState({modalFacebook: true});
     };
 
+    /*
     const cierraModal = () => {
       var xhttp = new XMLHttpRequest();
 
@@ -71,6 +73,30 @@ export default class Inscription extends Component {
 
       this.setState({modalVisible: false});
     };
+  */
+    const cierraModal = () => {
+      const self = this;
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log('Respuesta del servidor: ' + xhttp.responseText);
+
+          if (XMLHttpRequest.responseText === '3') {
+            Alert.alert('Error: correo no reconocido.');
+          } else {
+            if (xhttp.responseText === '0') {
+              Alert.alert('Error: password erroneo, intenta de nuevo.');
+            } else {
+              self.props.navigation.navigate('menu', {
+                nombre: xhttp.responseText,
+              });
+            }
+          }
+        }
+      };
+    };
+
     const cierraModalFacebook = () => {
       this.setState({modalFacebook: false});
     };
