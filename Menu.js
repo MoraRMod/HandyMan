@@ -17,8 +17,6 @@ export default class Menu extends Component {
   }
 }
 
-intalar: npm install react-native-side-drawer
-
 import React from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import MenuDrawer from 'react-native-side-drawer'
