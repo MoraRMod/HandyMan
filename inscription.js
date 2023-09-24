@@ -14,7 +14,20 @@ export default class Inscription extends Component {
     this.state = {
       modalVisible: false,
       modalFacebook: false,
+      nombre: '',
+      correo: '',
+      password: '',
     };
+  }
+
+  componentDidMount() {
+    const {route} = this.props;
+
+    if (route.params) {
+      const {modalVisible, modalFacebook} = route.params;
+
+      this.setState({modalVisible, modalFacebook});
+    }
   }
 
   render() {
@@ -26,6 +39,36 @@ export default class Inscription extends Component {
     };
 
     const cierraModal = () => {
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(xhttp.responseText);
+        }
+      };
+
+      xhttp.open(
+        'GET',
+        'https://handymanprograinternet.000webhostapp.com/DatosP.php?nombre=' +
+          this.state.nombre +
+          '&correo=' +
+          this.state.correo +
+          '&password=' +
+          this.state.password,
+        true,
+      );
+
+      console.log(
+        'https://handymanprograinternet.000webhostapp.com/DatosP.php?nombre=' +
+          this.state.nombre +
+          '&correo=' +
+          this.state.correo +
+          '&password=' +
+          this.state.password,
+      );
+
+      xhttp.send();
+
       this.setState({modalVisible: false});
     };
     const cierraModalFacebook = () => {
@@ -87,6 +130,7 @@ export default class Inscription extends Component {
         </TouchableOpacity>
 
         {/* Ventana modal correo*/}
+
         <Modal
           visible={this.state.modalVisible}
           animationType="slide"
@@ -105,13 +149,22 @@ export default class Inscription extends Component {
               padding: 10,
             }}>
             <Text style={styles.subtitulo}>Nombre:</Text>
-            <TextInput style={styles.txtInput} />
+            <TextInput
+              style={styles.txtInput}
+              onChangeText={nombre => this.setState({nombre})}
+            />
 
             <Text style={styles.subtitulo}>Correo:</Text>
-            <TextInput style={styles.txtInput} />
+            <TextInput
+              style={styles.txtInput}
+              onChangeText={correo => this.setState({correo})}
+            />
 
             <Text style={styles.subtitulo}>Password:</Text>
-            <TextInput style={styles.txtInput} />
+            <TextInput
+              style={styles.txtInput}
+              onChangeText={password => this.setState({password})}
+            />
 
             <TouchableOpacity
               style={{
