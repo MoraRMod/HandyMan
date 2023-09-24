@@ -1,36 +1,35 @@
-import React, { Component } from 'react';
-import { View, Text, Alert } from 'react-native';
+import React, {Component} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import MenuDrawer from 'react-native-side-drawer';
 
 export default class Menu extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <View>
-        <Text style = {{color: "white"}}> Bienvenido: {this.props.route.params.nombre} </Text>
+        <Text style={{color: 'white'}}>
+          {' '}
+          Bienvenido: {this.props.route.params.nombre}{' '}
+        </Text>
       </View>
     );
   }
 }
 
-import React from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import MenuDrawer from 'react-native-side-drawer'
-
 class Example extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
     };
   }
 
   toggleOpen = () => {
-    this.setState({ open: !this.state.open });
+    this.setState({open: !this.state.open});
   };
 
   drawerContent = () => {
@@ -51,8 +50,7 @@ class Example extends React.Component {
           drawerPercentage={45}
           animationTime={250}
           overlay={true}
-          opacity={0.4}
-        >
+          opacity={0.4}>
           <TouchableOpacity onPress={this.toggleOpen} style={styles.body}>
             <Text>Open</Text>
           </TouchableOpacity>
@@ -65,35 +63,21 @@ class Example extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
     marginTop: 30,
-    zIndex: 0
+    zIndex: 0,
   },
   animatedBox: {
     flex: 1,
-    backgroundColor: "#38C8EC",
-    padding: 10
+    backgroundColor: '#38C8EC',
+    padding: 10,
   },
   body: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F04812'
-  }
-})
-
-/*
-Ponerlo en Inicio.js
-
-if(XMLHttpRequest.responseText === "3"){
-  Alert.alert("Error: correo no reconocido.");
-} else {
-  if(xhttp.responseText === "0"){
-    Alert.alert("Error: password erroneo, intenta de nuevo.");
-  } else {
-    NavigationContainer.navigate("Menu", (nombre:xhttp.responseText));
-  }
-}
-*/
+    backgroundColor: '#F04812',
+  },
+});
