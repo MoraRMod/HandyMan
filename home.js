@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
 export default class Home extends Component {
   constructor(props) {
@@ -11,7 +10,10 @@ export default class Home extends Component {
   render() {
     const clickEmail = () => {
       console.log('Picaste el boton de Email');
-      this.props.navigation.navigate('Inscription');
+      this.props.navigation.navigate('Inscription', {
+        modalVisible: false,
+        modalFacebook: true,
+      });
     };
     const clickFacebook = () => {
       console.log('Picaste el boton de Facebook');
@@ -19,7 +21,10 @@ export default class Home extends Component {
     };
 
     const irIns = () => {
-      this.props.navigation.navigate('Inscription');
+      this.props.navigation.navigate('Inscription', {
+        modalVisible: true,
+        modalFacebook: false,
+      });
     };
 
     return (
