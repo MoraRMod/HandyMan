@@ -23,7 +23,7 @@ export default class Menu extends React.Component {
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({color, size}) => (
-              <MaterialCommunityIcons name="home" color={'red'} size={30} />
+              <MaterialCommunityIcons name="home" color={'black'} size={30} />
             ),
           }}></Tab.Screen>
         <Tab.Screen
@@ -34,7 +34,7 @@ export default class Menu extends React.Component {
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons
                 name="alert-box"
-                color={'red'}
+                color={'black'}
                 size={30}
               />
             ),
