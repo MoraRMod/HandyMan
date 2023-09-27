@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import MenuDrawer from 'react-native-side-drawer';
 
 export default class Tab1 extends React.Component {
@@ -42,7 +42,10 @@ export default class Tab1 extends React.Component {
             Bienvenido: <Text>{'default'}</Text>{' '}
           </Text>
           <TouchableOpacity onPress={this.toggleOpen}>
-            <Image style={styles.logoMenu} source={require('./Imagenes/menuHamb.png')}/>
+            <Image
+              style={styles.logoMenu}
+              source={require('./src/img/menu.png')}
+            />
           </TouchableOpacity>
         </MenuDrawer>
       </View>
