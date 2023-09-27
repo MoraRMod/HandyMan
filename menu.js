@@ -17,8 +17,28 @@ export default class Menu extends React.Component {
 
     return (
       <Tab.Navigator>
-        <Tab.Screen name="myMenu" component={paraMenu}></Tab.Screen>
-        <Tab.Screen name="tab2" component={tab2}></Tab.Screen>
+        <Tab.Screen
+          name="myMenu"
+          component={paraMenu}
+          options={{
+            tabBarLabel: 'Home',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons name="home" color={'red'} size={30} />
+            ),
+          }}></Tab.Screen>
+        <Tab.Screen
+          name="tab2"
+          component={tab2}
+          options={{
+            tabBarLabel: 'Alerta',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons
+                name="alert-box"
+                color={'red'}
+                size={30}
+              />
+            ),
+          }}></Tab.Screen>
       </Tab.Navigator>
     );
   }
