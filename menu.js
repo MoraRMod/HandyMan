@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 
 import paraMenu from './tab1';
-import Tab2 from './tab2';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import tab2 from './tab2';
 
 export default class Menu extends React.Component {
   constructor(props) {
@@ -16,12 +16,10 @@ export default class Menu extends React.Component {
     const Tab = createBottomTabNavigator();
 
     return (
-      <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Menu" component={paraMenu}></Tab.Screen>
-          <Tab.Screen name="tab2" component={Tab2}></Tab.Screen>
-        </Tab.Navigator>
-      </NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="myMenu" component={paraMenu}></Tab.Screen>
+        <Tab.Screen name="tab2" component={tab2}></Tab.Screen>
+      </Tab.Navigator>
     );
   }
 }
