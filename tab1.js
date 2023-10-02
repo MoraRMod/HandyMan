@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  FlatList,
+} from 'react-native';
 import MenuDrawer from 'react-native-side-drawer';
 
 export default class Tab1 extends React.Component {
@@ -8,6 +15,7 @@ export default class Tab1 extends React.Component {
 
     this.state = {
       open: false,
+      dataSource: [],
       name: 'default',
     };
   }
@@ -23,6 +31,23 @@ export default class Tab1 extends React.Component {
       </TouchableOpacity>
     );
   };
+
+  componentDidMount() {
+    var xhttp = new XMLHttpRequest();
+    _this = this;
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(xhttp.responseText);
+
+        var temp = JSON.parse(xhttp.responseText);
+
+        _this.setState({dataSource: temp});
+      }
+    };
+    xhttp.open('GET', 'https://dcc2.000webhostapp.com/2023B/datos.json', true);
+    xhttp.send();
+  }
 
   render() {
     return (
@@ -48,6 +73,37 @@ export default class Tab1 extends React.Component {
             />
           </TouchableOpacity>
         </MenuDrawer>
+
+        <View style={{marginTop: 20}}>
+          <Text style={{color: 'purple', fontSize: 30}}>
+            List de Trabajadores
+          </Text>
+          <FlatList
+            data={this.state.dataSource}
+            renderItem={({item}) => (
+              <View style={{height: 100}}>
+                <Text style={{color: 'black'}}>{item.Nombre}</Text>
+                <Text style={{color: 'black'}}>{item.Profesion}</Text>
+                <Text style={{color: 'black'}}>{item.Telefono}</Text>
+                <View>
+                  <Image
+                    source={{uri: item.Imagen}}
+                    style={{width: 50, height: 150}}></Image>
+                </View>
+                // Ver el onPress para hacer lo de las celdas de perfil de cada
+                un elemento de la lista
+                <View
+                  style={{
+                    width: 300,
+                    height: 10,
+                    backgroundColor: 'gray',
+                    marginTop: 4,
+                  }}></View>
+              </View>
+            )}
+            keyExtractor={item => item.id}
+          />
+        </View>
       </View>
     );
   }
@@ -55,7 +111,7 @@ export default class Tab1 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -63,9 +119,11 @@ const styles = StyleSheet.create({
     zIndex: 0,
   },
   animatedBox: {
-    flex: 1,
+    //flex: 1,
     backgroundColor: '#38C8EC',
-    padding: 10,
+    height: 700,
+    width: 150,
+    //padding: 10,
   },
   body: {
     flex: 1,
