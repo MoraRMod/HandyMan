@@ -85,13 +85,15 @@ export default class Tab1 extends React.Component {
                 <Text style={{color: 'black'}}>{item.Nombre}</Text>
                 <Text style={{color: 'black'}}>{item.Profesion}</Text>
                 <Text style={{color: 'black'}}>{item.Telefono}</Text>
+
                 <View>
                   <Image
                     source={{uri: item.Imagen}}
                     style={{width: 50, height: 150}}></Image>
                 </View>
-                // Ver el onPress para hacer lo de las celdas de perfil de cada
-                un elemento de la lista
+
+                {/*Ver el onPress para hacer lo de las celdas de perfil de cada
+                un elemento de la lista*/}
                 <View
                   style={{
                     width: 300,
