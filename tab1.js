@@ -150,7 +150,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F04812',
   },
-
   logoMenu: {
     width: 30,
     height: 30,
