@@ -64,12 +64,12 @@ export default class Tab1 extends React.Component {
           animationTime={250}
           overlay={true}
           opacity={0.4}>
-          {/*<Text style={{color:"black", fontSize: 16}}> Bienvenido: <Text>{this.props.route.params.nombre}</Text> </Text>*/}
 
           <Text style={{color: 'black', fontSize: 16}}>
             {' '}
             Bienvenido: <Text>{'default'}</Text>{' '}
           </Text>
+
           <TouchableOpacity onPress={this.toggleOpen}>
             <Image
               style={styles.logoMenu}
@@ -79,13 +79,10 @@ export default class Tab1 extends React.Component {
         </MenuDrawer>
 
         <View style={{marginTop: 15}}>
-          <Text
-            style={{
-              color: 'purple',
-              fontSize: 30,
-            }}>
-            List de Trabajadores
+          <Text style={{color: 'purple', fontSize: 30}}>
+            Lista de Trabajadores
           </Text>
+
           <FlatList
             data={this.state.dataSource}
             renderItem={({item}) => (
@@ -124,9 +121,6 @@ export default class Tab1 extends React.Component {
                       }}></Image>
                   </View>
                 </TouchableOpacity>
-
-                {/*Ver el onPress para hacer lo de las celdas de perfil de cada
-                un elemento de la lista*/}
               </View>
             )}
             keyExtractor={item => item.id.toString()}
@@ -139,7 +133,6 @@ export default class Tab1 extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    //flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
@@ -147,11 +140,9 @@ const styles = StyleSheet.create({
     zIndex: 0,
   },
   animatedBox: {
-    //flex: 1,
     backgroundColor: '#38C8EC',
     height: 700,
     width: 150,
-    //padding: 10,
   },
   body: {
     flex: 1,
