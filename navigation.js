@@ -5,6 +5,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Inicio from './home';
 import Ins from './inscription';
 import Men from './menu';
+import Tab from './tab1';
+import winIn from './windowInfo';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,8 +31,25 @@ export default class Navigation extends Component {
             component={Men}
             options={{headerShown: false}}
           />
+          <Stack.Screen name="windowInfo" component={winIn} />
         </Stack.Navigator>
       </NavigationContainer>
     );
+
+    /*
+    // Esta es una prueba para la ventaba de Tab1 y la tarea.
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Tab">
+          <Stack.Screen
+            name="Tab"
+            component={Tab}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen name="windowInfo" component={winIn} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
+    */
   }
 }
