@@ -17,6 +17,7 @@ export default class Navigation extends Component {
   }
 
   render() {
+    /*
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Inicio">
@@ -35,8 +36,8 @@ export default class Navigation extends Component {
         </Stack.Navigator>
       </NavigationContainer>
     );
-
-    /*
+*/
+    
     // Esta es una prueba para la ventaba de Tab1 y la tarea.
     return (
       <NavigationContainer>
@@ -50,6 +51,6 @@ export default class Navigation extends Component {
         </Stack.Navigator>
       </NavigationContainer>
     );
-    */
+    
   }
 }
