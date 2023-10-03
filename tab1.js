@@ -49,6 +49,10 @@ export default class Tab1 extends React.Component {
     xhttp.send();
   }
 
+  paginaNueva = item => {
+    this.props.navigation.navigate('windowInfo', {selectedItem: item});
+  };
+
   render() {
     return (
       <View style={styles.container}>
@@ -74,36 +78,58 @@ export default class Tab1 extends React.Component {
           </TouchableOpacity>
         </MenuDrawer>
 
-        <View style={{marginTop: 20}}>
-          <Text style={{color: 'purple', fontSize: 30}}>
+        <View style={{marginTop: 15}}>
+          <Text
+            style={{
+              color: 'purple',
+              fontSize: 30,
+            }}>
             List de Trabajadores
           </Text>
           <FlatList
             data={this.state.dataSource}
             renderItem={({item}) => (
-              <View style={{height: 100}}>
-                <Text style={{color: 'black'}}>{item.Nombre}</Text>
-                <Text style={{color: 'black'}}>{item.Profesion}</Text>
-                <Text style={{color: 'black'}}>{item.Telefono}</Text>
+              <View onPress={paginaNueva}>
+                <TouchableOpacity
+                  onPress={() => this.paginaNueva(item)}
+                  style={{
+                    height: 100,
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                  }}>
+                  <View
+                    style={{
+                      margin: 15,
+                      width: 90,
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}>
+                    <Text style={{color: 'black'}}>{item.Nombre}</Text>
+                    <Text style={{color: 'black'}}>{item.Profesion}</Text>
+                    <Text style={{color: 'black'}}>{item.Telefono}</Text>
+                  </View>
 
-                <View>
-                  <Image
-                    source={{uri: item.Imagen}}
-                    style={{width: 50, height: 150}}></Image>
-                </View>
+                  <View
+                    style={{
+                      width: 150,
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}>
+                    <Image
+                      source={{uri: item.Imagen}}
+                      style={{
+                        width: 100,
+                        height: 150,
+                      }}></Image>
+                  </View>
+                </TouchableOpacity>
 
                 {/*Ver el onPress para hacer lo de las celdas de perfil de cada
                 un elemento de la lista*/}
-                <View
-                  style={{
-                    width: 300,
-                    height: 10,
-                    backgroundColor: 'gray',
-                    marginTop: 4,
-                  }}></View>
               </View>
             )}
-            keyExtractor={item => item.id}
+            keyExtractor={item => item.id.toString()}
           />
         </View>
       </View>
