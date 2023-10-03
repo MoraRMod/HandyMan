@@ -50,6 +50,7 @@ export default class Tab1 extends React.Component {
   }
 
   paginaNueva = item => {
+    console.log('esooo');
     this.props.navigation.navigate('windowInfo', {selectedItem: item});
   };
 
@@ -64,7 +65,6 @@ export default class Tab1 extends React.Component {
           animationTime={250}
           overlay={true}
           opacity={0.4}>
-
           <Text style={{color: 'black', fontSize: 16}}>
             {' '}
             Bienvenido: <Text>{'default'}</Text>{' '}
@@ -86,7 +86,7 @@ export default class Tab1 extends React.Component {
           <FlatList
             data={this.state.dataSource}
             renderItem={({item}) => (
-              <View onPress={paginaNueva}>
+              <View>
                 <TouchableOpacity
                   onPress={() => this.paginaNueva(item)}
                   style={{
