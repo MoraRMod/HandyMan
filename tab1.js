@@ -45,7 +45,8 @@ export default class Tab1 extends React.Component {
         _this.setState({dataSource: temp});
       }
     };
-    xhttp.open('GET', 'https://dcc2.000webhostapp.com/2023B/datos.json', true);
+    //xhttp.open('GET', 'https://dcc2.000webhostapp.com/2023B/datos.json', true);
+    xhttp.open('GET', 'https://cuceimobile.space/datos.json', true);
     xhttp.send();
   }
 
