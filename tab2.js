@@ -9,15 +9,15 @@ export default class Tab2 extends Component {
       dataSource: [
         {
           id: '1',
-          title: 'https://www.youtube.com/watch?v=ZAz3rnLGthg',
+          title: 'https://www.youtube.com/watch?v=p0mRIhK9seg',
         },
         {
           id: '2',
-          title: 'https://www.youtube.com/watch?v=AhvkKR0ero8',
+          title: 'https://www.youtube.com/watch?v=yauFhOqoXRc',
         },
         {
           id: '3',
-          title: 'https://www.youtube.com/watch?v=f9Pv589uCB0',
+          title: 'https://www.youtube.com/watch?v=uzS3WG6__G4',
         },
       ],
     };
