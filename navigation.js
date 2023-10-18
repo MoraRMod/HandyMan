@@ -7,6 +7,7 @@ import Ins from './inscription';
 import Men from './menu';
 import Tab from './tab1';
 import Tab2 from './tab2';
+import Tab3 from './tab3';
 import winIn from './windowInfo';
 
 const Stack = createNativeStackNavigator();
@@ -18,7 +19,7 @@ export default class Navigation extends Component {
   }
 
   render() {
-    
+    /*
     return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Inicio">
@@ -38,27 +39,33 @@ export default class Navigation extends Component {
             component={Tab}
             options={{headerShown: false}}
           />
-          <Stack.Screen name="Tab2" component={Tab2}
-          options={{headerShown: false}}
-          />
-          <Stack.Screen name="windowInfo" component={winIn} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-    
-/*
-    // Esta es una prueba para la ventaba de Tab1 y la tarea.
-    return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Tab2">
           <Stack.Screen
             name="Tab2"
             component={Tab2}
             options={{headerShown: false}}
           />
+          <Stack.Screen name="windowInfo" component={winIn} />
+          <Stack.Screen
+            name="Tab3"
+            component={Tab3}
+            options={{headerShown: false}}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     );
-    */
+*/
+
+    // Esta es una prueba para la ventaba de Tab1 y la tarea.
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Men">
+          <Stack.Screen
+            name="Men"
+            component={Men}
+            options={{headerShown: false}}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
   }
 }
