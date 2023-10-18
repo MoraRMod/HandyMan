@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 
 export default class WindowInfo extends Component {
   render() {
@@ -13,18 +12,6 @@ export default class WindowInfo extends Component {
         <Text style={styles.text}>{selectedItem.Telefono}</Text>
 
         <Image source={{uri: selectedItem.Imagen}} style={styles.img} />
-
-        <View style={styles.mapContainer}>
-          <MapView
-            provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-            style={styles.map}
-            region={{
-              latitude: 20.65701,
-              longitude: -103.325,
-              latitudeDelta: 0.01,
-              longitudeDelta: 0.0121,
-            }}></MapView>
-        </View>
       </View>
     );
   }
@@ -52,17 +39,5 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     rowGap: 13,
-  },
-  mapContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  map: {
-    height: 360,
-    width: 425,
-    marginTop: 1300,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
