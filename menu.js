@@ -45,10 +45,10 @@ export default class Menu extends React.Component {
           name="myTab3"
           component={paraTab3}
           options={{
-            tabBarLabel: 'Alerta',
+            tabBarLabel: 'Mapa',
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons
-                name="alert-box"
+                name="map-marker"
                 color={'black'}
                 size={30}
               />
