@@ -1,6 +1,6 @@
 import {Text, View, StyleSheet} from 'react-native';
 import React, {Component} from 'react';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 export default class Tab3 extends Component {
   render() {
@@ -14,7 +14,15 @@ export default class Tab3 extends Component {
             longitude: -103.325,
             latitudeDelta: 0.01,
             longitudeDelta: 0.0121,
-          }}></MapView>
+          }}>
+          <Marker
+            description="Persona"
+            coordinate={{
+              latitude: 20.656206980737775,
+              longitude: -103.3252508278986,
+            }}
+          />
+        </MapView>
       </View>
     );
   }
@@ -22,14 +30,14 @@ export default class Tab3 extends Component {
 
 const styles = StyleSheet.create({
   mapContainer: {
+    display: 'flex',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   map: {
-    height: 360,
+    height: 460,
     width: 425,
-    marginTop: 1300,
     justifyContent: 'center',
     alignItems: 'center',
   },
