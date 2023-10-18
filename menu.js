@@ -3,12 +3,12 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import paraMenu from './tab1';
-import tab2 from './tab2';
+import paraTab2 from './tab2';
+import paraTab3 from './tab3';
 
 export default class Menu extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {};
   }
 
@@ -25,10 +25,11 @@ export default class Menu extends React.Component {
             tabBarIcon: ({color, size}) => (
               <MaterialCommunityIcons name="home" color={'black'} size={30} />
             ),
-          }}></Tab.Screen>
+          }}
+        />
         <Tab.Screen
-          name="tab2"
-          component={tab2}
+          name="myTab2"
+          component={paraTab2}
           options={{
             tabBarLabel: 'Alerta',
             tabBarIcon: ({color, size}) => (
@@ -38,7 +39,22 @@ export default class Menu extends React.Component {
                 size={30}
               />
             ),
-          }}></Tab.Screen>
+          }}
+        />
+        <Tab.Screen
+          name="myTab3"
+          component={paraTab3}
+          options={{
+            tabBarLabel: 'Alerta',
+            tabBarIcon: ({color, size}) => (
+              <MaterialCommunityIcons
+                name="alert-box"
+                color={'black'}
+                size={30}
+              />
+            ),
+          }}
+        />
       </Tab.Navigator>
     );
   }
