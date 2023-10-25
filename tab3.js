@@ -14,9 +14,12 @@ export default class Tab3 extends Component {
             longitude: -103.325,
             latitudeDelta: 0.01,
             longitudeDelta: 0.0121,
-          }}>
+          }}
+          showsUserLocation={true}
+          followsUserLocation={true}>
           <Marker
-            description="Persona"
+            title="CUCEI"
+            description="Universidad"
             coordinate={{
               latitude: 20.656206980737775,
               longitude: -103.3252508278986,
